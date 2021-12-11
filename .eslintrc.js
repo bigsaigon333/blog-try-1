@@ -4,15 +4,16 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    "plugin:react/jsx-runtime",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:import/recommended",
     "plugin:jsx-a11y/recommended",
-    "airbnb",
+    "airbnb-typescript",
     "airbnb/hooks",
+    "plugin:react/jsx-runtime",
     "prettier",
   ],
+  ignorePatterns: ["*.js"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
@@ -20,7 +21,10 @@ module.exports = {
     },
     ecmaVersion: 13,
     sourceType: "module",
+    project: ["./tsconfig.json"],
   },
   plugins: ["react", "@typescript-eslint", "import", "jsx-a11y"],
-  rules: {},
+  rules: {
+    "react/jsx-filename-extension": [1, { extensions: [".tsx", ".jsx"] }],
+  },
 };
