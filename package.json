@@ -4,7 +4,7 @@
   "description": "blog for bigsaigon333",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prettier": "prettier --write --ignore-unknown ."
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/bigsaigon333/bigsaigon333.github.io/issues"
   },
-  "homepage": "https://github.com/bigsaigon333/bigsaigon333.github.io#readme"
+  "homepage": "https://github.com/bigsaigon333/bigsaigon333.github.io#readme",
+  "devDependencies": {
+    "prettier": "2.5.1"
+  }
 }
