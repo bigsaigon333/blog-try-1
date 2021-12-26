@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 const isProduction = process.env.NODE_ENV == "production";
 
@@ -13,16 +14,23 @@ const config = {
   entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "dist"),
+    clean: true,
   },
   devServer: {
     open: true,
     host: "localhost",
+    devMiddleware: {
+      writeToDisk: (filePath) => /md\/[^.]+\.md$/.test(filePath),
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "public/index.html",
     }),
     new ForkTsCheckerWebpackPlugin(),
+    new CopyPlugin({
+      patterns: [{ from: path.resolve(__dirname, "md"), to: "md" }],
+    }),
   ],
   module: {
     rules: [
