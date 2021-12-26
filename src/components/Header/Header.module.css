@@ -1,0 +1,33 @@
+.header {
+  padding: 0 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.img {
+  display: grid;
+  place-items: center;
+  width: 9rem;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background-image: linear-gradient(
+      180deg,
+      rgba(196, 196, 196, 0.3) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    url("./me.png");
+  background-size: contain;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+.description {
+  font-size: 1.25rem;
+}
+
+.linkContainer {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
