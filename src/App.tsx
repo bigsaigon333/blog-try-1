@@ -1,3 +1,4 @@
+import { Link, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Post from "./components/Post/Post";
 
@@ -13,7 +14,16 @@ const App = () => {
   return (
     <div>
       <Header />
-      <Post {...post} />
+      <Link to="/super">
+        <Post {...post} />
+      </Link>
+      <Link to="/jsx">
+        <Post {...post} title="jsx" />
+      </Link>
+      <Routes>
+        <Route path={"super"} element={<Post {...post} />} />
+        <Route path={"jsx"} element={<Post {...post} title="jsx" />} />
+      </Routes>
     </div>
   );
 };
