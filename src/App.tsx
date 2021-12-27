@@ -1,5 +1,6 @@
 import { Link, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
+import Post from "./components/Post/Post";
 import PostSummary from "./components/PostSummary/PostSummary";
 
 interface MdSummary {
@@ -27,7 +28,7 @@ const App = ({ mds }: AppProps) => {
           ))}
         />
         {mds.map(({ route }) => (
-          <Route key={route} path={route} element={<p>{route} Post</p>} />
+          <Route key={route} path={route} element={<Post route={route} />} />
         ))}
       </Routes>
     </div>
