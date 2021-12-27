@@ -1,14 +1,20 @@
 import type { HTMLAttributes } from "react";
-import style from "./Post.module.css";
+import style from "./PostSummary.module.css";
 
-interface PostProps extends HTMLAttributes<HTMLElement> {
+interface PostSummaryProps extends HTMLAttributes<HTMLElement> {
   title: string;
   description: string;
   date: Date;
   minToRead: number;
 }
 
-const Post = ({ title, description, date, minToRead, ...rest }: PostProps) => (
+const PostSummary = ({
+  title,
+  description,
+  date,
+  minToRead,
+  ...rest
+}: PostSummaryProps) => (
   <article className={style.post} {...rest}>
     <h1 className={style.title}>{title}</h1>
     <p className={style.description}>{description}</p>
@@ -19,4 +25,4 @@ const Post = ({ title, description, date, minToRead, ...rest }: PostProps) => (
   </article>
 );
 
-export default Post;
+export default PostSummary;
