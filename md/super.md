@@ -1,3 +1,10 @@
+---
+title: super란?
+description: super는 현재 객체의 프로토타입 객체를 가리키는 포인터입니다.
+createdAt: 2021-11-12
+minToRead: 5
+---
+
 # super 란?
 
 ## super 참조를 통한 쉬운 프로토타입 접근

@@ -1,3 +1,10 @@
+---
+title: JSX란?
+description: JavaScript Syntax Extension 의 줄임말으로, React에서 UI가 어떻게 생겼는지를 나타내기 위해 사용되는 문법입니다.
+createdAt: 2021-12-27
+minToRead: 3
+---
+
 # JSX란?
 
 ## 결론
