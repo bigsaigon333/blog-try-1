@@ -4,14 +4,14 @@ import style from "./PostSummary.module.css";
 interface PostSummaryProps extends HTMLAttributes<HTMLElement> {
   title: string;
   description: string;
-  date: Date;
+  createdAt: Date;
   minToRead: number;
 }
 
 const PostSummary = ({
   title,
   description,
-  date,
+  createdAt,
   minToRead,
   ...rest
 }: PostSummaryProps) => (
@@ -19,7 +19,7 @@ const PostSummary = ({
     <h1 className={style.title}>{title}</h1>
     <p className={style.description}>{description}</p>
     <div className={style.extraContainer}>
-      <span>{date.toLocaleDateString()}</span>
+      <span>{createdAt.toLocaleDateString()}</span>
       <span>{minToRead} min read</span>
     </div>
   </article>

@@ -6,7 +6,7 @@ import PostSummary from "./components/PostSummary/PostSummary";
 interface MdSummary {
   title: string;
   description: string;
-  date: Date;
+  createdAt: Date;
   minToRead: number;
 }
 
