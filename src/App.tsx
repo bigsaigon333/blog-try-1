@@ -2,33 +2,32 @@ import { Link, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import PostSummary from "./components/PostSummary/PostSummary";
 
-const post = {
-  title: "super",
-  description:
-    "super 는 현재 객체의 프로토타입 객체를 가리키는 포인터이며, Object.getPrototypeOf(this)의 값과 동일하다.간결한 메서드 안에서 super 참조를 사용하여 프로토타입 객체 내 어떤 메서드든 호출할 수 있다. super 참조를 사용하여 프로",
-  date: new Date("2021.11.12"),
-  minToRead: 3,
-};
+interface MdSummary {
+  title: string;
+  description: string;
+  date: Date;
+  minToRead: number;
+}
 
 interface AppProps {
-  mds: { route: string; content: string }[];
+  mds: Array<{ route: string } & MdSummary>;
 }
 
 const App = ({ mds }: AppProps) => {
   return (
     <div>
+      <Header />
       <Routes>
-        <Header />
         <Route
           path="/"
-          element={mds.map(({ route }) => (
+          element={mds.map(({ route, ...rest }) => (
             <Link key={route} to={route}>
-              <PostSummary {...post} />
+              <PostSummary {...rest} />
             </Link>
           ))}
         />
         {mds.map(({ route }) => (
-          <Route key={route} path={route} element={<PostSummary {...post} />} />
+          <Route key={route} path={route} element={<p>{route} Post</p>} />
         ))}
       </Routes>
     </div>
