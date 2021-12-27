@@ -4,6 +4,7 @@ module.exports = {
     es2021: true,
   },
   extends: [
+    "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:import/recommended",
@@ -14,6 +15,11 @@ module.exports = {
     "prettier",
   ],
   ignorePatterns: ["*.js"],
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
