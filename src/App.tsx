@@ -1,6 +1,6 @@
 import { Link, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
-import Post from "./components/Post/Post";
+import PostSummary from "./components/PostSummary/PostSummary";
 
 const post = {
   title: "super",
@@ -10,19 +10,26 @@ const post = {
   minToRead: 3,
 };
 
-const App = () => {
+interface AppProps {
+  mds: { route: string; content: string }[];
+}
+
+const App = ({ mds }: AppProps) => {
   return (
     <div>
-      <Header />
-      <Link to="/super">
-        <Post {...post} />
-      </Link>
-      <Link to="/jsx">
-        <Post {...post} title="jsx" />
-      </Link>
       <Routes>
-        <Route path={"super"} element={<Post {...post} />} />
-        <Route path={"jsx"} element={<Post {...post} title="jsx" />} />
+        <Header />
+        <Route
+          path="/"
+          element={mds.map(({ route }) => (
+            <Link key={route} to={route}>
+              <PostSummary {...post} />
+            </Link>
+          ))}
+        />
+        {mds.map(({ route }) => (
+          <Route key={route} path={route} element={<PostSummary {...post} />} />
+        ))}
       </Routes>
     </div>
   );
